@@ -18,15 +18,18 @@ namespace Lesson4_2
 
             object trash = ("Hello World!");
             object trashtwo = ("Vasia Negodiay");
+            object trash3 = "Ghost";
 
             bobrHouse.AddBobr(bobr);
             bobrHouse.AddBobr(bobrtwo);
             bobrHouse.AddTrash(trash);
             bobrHouse.AddTrash(trashtwo);
 
-            bobrHouse.SetTrashToBobr(trash, bobr);
-            bobrHouse.SetTrashToBobr(trashtwo, bobrtwo);
-            bobrHouse.SetTrashToBobr(trashtwo, bobr);
+            bobrHouse.SetTrashToBobr(bobr, trash);
+            bobrHouse.SetTrashToBobr(bobrtwo, trashtwo);
+            
+            bobrHouse.SetTrashToBobr(bobr, trashtwo);
+            bobrHouse.SetTrashToBobr(bobrtwo, trash3);
 
         }
     }

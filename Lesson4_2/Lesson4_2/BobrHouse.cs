@@ -12,11 +12,11 @@ namespace Lesson4_2
         {
             bobrs = new List<Bobr>();
             stuffs = new List<object>();
-            keyValuePairs = new Dictionary<object, Bobr>();
+            keyValuePairs = new Dictionary<Bobr, object>();
         }
         List<Bobr> bobrs;
         List<object> stuffs;
-        Dictionary<object, Bobr> keyValuePairs;
+        Dictionary<Bobr, object> keyValuePairs;
 
         public void AddBobr(Bobr bobr)
         {
@@ -39,15 +39,15 @@ namespace Lesson4_2
         //    return keyValuePairs.TryGetValue(obj, out bobr) /*obj.Owner*/;
         //}
 
-        public void SetTrashToBobr(object obj, Bobr bobr)
+        public void SetTrashToBobr(Bobr bobr, object obj)
         {
-            if (!keyValuePairs.ContainsKey(obj))
+            if (keyValuePairs.ContainsKey(bobr) || keyValuePairs.Values.Contains(obj))
             {
-                keyValuePairs.Add(obj, bobr);
+                return;
             }
             else
             {
-                return /*keyValuePairs.TryGetValue(obj, out bobr)*/;
+                keyValuePairs.Add(bobr, obj);
             }
         }
 
