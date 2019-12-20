@@ -15,30 +15,19 @@ namespace Lesson4_2
             bobr.Name = "Vasia";
             bobrtwo.Name = "Leha";
             BobrHouse bobrHouse = new BobrHouse();
-            
-            Trash trash = new Trash("Hello World!");
-            Trash trashtwo = new Trash("Vasia Negodiay");
+
+            object trash = ("Hello World!");
+            object trashtwo = ("Vasia Negodiay");
 
             bobrHouse.AddBobr(bobr);
             bobrHouse.AddBobr(bobrtwo);
             bobrHouse.AddTrash(trash);
             bobrHouse.AddTrash(trashtwo);
 
-            DataType dataType = new DataType();
+            bobrHouse.SetTrashToBobr(trash, bobr);
+            bobrHouse.SetTrashToBobr(trashtwo, bobrtwo);
+            bobrHouse.SetTrashToBobr(trashtwo, bobr);
 
-            
-            bobrHouse.GetTrash(trash, bobr);
-
-            bobrHouse.GetTrash(trashtwo, bobrtwo);
-            bobrHouse.GetTrash(trash, bobr);
-
-            //bobrHouse.SetTrashToBobr(trash);
-            
-            //Console.WriteLine();
-            //Console.ReadKey();
-            //bobr.GetTrash(trash);
-            //bobrtwo.GetTrash(trash);
-            //Console.WriteLine(trash.Owner.Name);
         }
     }
 }
