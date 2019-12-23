@@ -10,15 +10,5 @@ namespace Lesson4_2
     {
         public string Name { get; set; }
 
-        //public Bobr GetTrash(Trash obj)
-        //{
-        //    if (obj.Owner == null || obj.Owner == this)
-        //    {
-        //        obj.Owner = this;
-        //        return null;
-        //    }
-        //    return obj.Owner;
-
-        //}
     }
 }
