@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lesson_5_2
 {
-    public enum Type { Teatcher, Student }
-    public abstract class Human
+    interface IMenu
     {
-        public Type type;
-        public string Name { get; set; }
+        void Action();
     }
-    
-    
 }

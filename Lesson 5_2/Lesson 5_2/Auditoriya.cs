@@ -9,34 +9,63 @@ namespace Lesson_5_2
 
     class Auditoriya
     {
-        public Auditoriya(int capacity)
+        public Auditoriya()
         {
-            teatchers = new List<Teatcher>();
-            students = new List<Student>();
-            Capacity = capacity;
+            Set_capacity();
+            humans = new List<Human>();
+        }
+
+        public int teacherscount;
+        public List<Human> humans;
+
+        public int capacity;
+
+        private void Set_capacity()
+        {
+            Admin admin = new Admin();
+            capacity = admin.SetCapacity();
+        }
+        public int Get_capacity()
+        {
+            return capacity;
         }
 
 
-        public List<Teatcher> teatchers;
-        public List<Student> students;
-
-        public int Capacity { get; private set; }
-
-        public void AddPeople()
+        public void AddPeople(Human human)
         {
-            Random r = new Random();
-            int cheek = r.Next(2);
-            if (cheek == 0 && students.Count + teatchers.Count < Capacity && teatchers.Count < 1)
+
+            if (human is Teatcher && humans.Count < capacity)
             {
-                teatchers.Add(new Teatcher());
+                if (teacherscount < 1)
+                {
+                    humans.Add(new Teatcher());
+                    teacherscount++;
+                }
+                else
+                    Console.WriteLine("Cannot add more than 1 teatcher"); return;
             }
-            if (cheek == 1 && students.Count + teatchers.Count < Capacity)
+            if (human is Student && humans.Count < capacity)
             {
-                students.Add(new Student());
+                humans.Add(new Student());
             }
+            //if (humans.Count == capacity)
+            //{
+            //    Console.WriteLine("Created new Auditoriya");
+            //    new Auditoriya();
+            //}
             else
                 return;
 
         }
+        public void PrintInfo()
+        {
+            foreach (var h in humans)
+            {
+                Console.WriteLine($"{h.Name} , {h.type}");
+            }
+
+
+        }
+
     }
 }

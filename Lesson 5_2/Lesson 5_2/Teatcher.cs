@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Lesson_5_2
 {
-    public enum Type { Teatcher, Student }
-    public abstract class Human
+    public class Teatcher : Human
     {
-        public Type type;
-        public string Name { get; set; }
+        public Teatcher()
+        {
+            type = Type.Teatcher;
+            Name = "Grigoriy";
+        }
     }
-    
-    
 }

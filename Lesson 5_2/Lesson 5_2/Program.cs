@@ -10,18 +10,44 @@ namespace Lesson_5_2
     {
         static void Main(string[] args)
         {
+
+            
             Admin admin = new Admin();
-            Auditoriya auditoriya = new Auditoriya(admin.SetCapacity());
+            Auditoriya auditoriya = new Auditoriya();
 
-            auditoriya.AddPeople();
-            auditoriya.AddPeople();
-            auditoriya.AddPeople();
-            auditoriya.AddPeople();
-            auditoriya.AddPeople();
-            auditoriya.AddPeople();
-            auditoriya.AddPeople();
-            auditoriya.AddPeople();
+            var commands = new Dictionary<ConsoleKey, IMenu>
+            {
+                [ConsoleKey.Spacebar] = new AddPeople(auditoriya)
+            };
 
+            var undone = true;
+            while (undone)
+            {
+                Console.WriteLine("Spacebar - Add human");
+                Console.WriteLine("To quit press any another key");
+
+                var key = Console.ReadKey().Key;
+                if (!commands.ContainsKey(key))
+                    break;
+                var command = commands[key];
+                Console.Clear();
+                command.Action();
+                //Console.Clear();
+            }
+
+            //Admin admin = new Admin();
+            //Teatcher teatcher = new Teatcher();
+            //Auditoriya auditoriya = new Auditoriya(admin.SetCapacity());
+
+            //auditoriya.AddPeople();
+            //auditoriya.AddPeople();
+            //auditoriya.AddPeople();
+            //auditoriya.AddPeople();
+            //auditoriya.AddPeople();
+            //auditoriya.AddPeople();
+            //auditoriya.AddPeople();
+
+            //auditoriya.PrintInfo();
 
         }
     }
